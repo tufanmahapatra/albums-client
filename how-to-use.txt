@@ -1,0 +1,43 @@
+Instructions on running "My Photos Client" from Windows/Linux/Mac
+=================================================================
+
+Assumptions:
+    - You have a Google account
+    - You have setup a client id and client secret from the Google Developer Console as mentioned in "Google Authorization Server : Client Registration"
+
+Steps: 
+
+1. Install JDK 15 from the following Site
+
+    https://jdk.java.net/java-se-ri/15
+    
+
+2. Install Maven from the following site
+    
+    https://maven.apache.org/install.html
+    
+
+3. Make sure that the following configuration property is set to 'google' or 'okta' in albums-client project.
+    
+    File Location : albums-client\src\main\resources\application-google.properties
+    
+    spring.profiles.active=google
+
+4. Set the following two properties by creating a client id and secret in the Google Developer Console as mentioned in the lectures
+
+    File Location : albums-client\src\main\resources\application-google.properties
+
+    spring.security.oauth2.client.registration.google.client-id=<your client id>
+    spring.security.oauth2.client.registration.google.client-secret=<your client secret>
+    
+
+4. To run the My Photos Client at port 8080
+
+    mvn spring-boot:run 
+
+5. Access the "My Photos Client" as 
+
+    http://localhost:8080/
+    
+
+6. You can create some album and upload some photos to the Google Photos Site for testing and check that they can be seen
